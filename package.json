@@ -1,0 +1,19 @@
+{
+  "name": "blog-with-node",
+  "version": "1.0.0",
+  "description": "Blog backend using nodejs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joycevarg/Blog-backend.git"
+  },
+  "author": "Joycevarg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joycevarg/Blog-backend/issues"
+  },
+  "homepage": "https://github.com/Joycevarg/Blog-backend#readme"
+}
