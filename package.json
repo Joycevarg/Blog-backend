@@ -8,7 +8,9 @@
     "morgan":"*",
     "static":"*",
     "mongodb":"*",
-    "mongoose":"*"
+    "mongoose":"*",
+    "cookie-parser":"*",
+    "express-session":"*"   
   },
   "repository": {
     "type": "git",
