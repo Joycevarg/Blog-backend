@@ -6,8 +6,9 @@ session = require("express-session"),
 cookieParser = require('cookie-parser'),
 app=express();
 
-require("./models/articlemodel");
 require("./models/usermodel");
+require("./models/articlemodel");
+
 
 global._rootdir=__dirname;
 var dburl="mongodb://localhost/blog";
@@ -24,18 +25,19 @@ mongoose.connect(dburl);
 console.log("connected");
 var notImplemented=function(req,res)
 {
-    res.send(req.session.userId);
+    res.send(404);
 }
 
-app.get('/',notImplemented);
+app.get('/',articleController.listArticles);
 app.get('/newArticle',articleController.newArticleForm);
-app.post('/newArticle',notImplemented);
-app.get('/articles/:articleId',notImplemented)
+app.post('/newArticle',articleController.submitArticle);
+app.get('/articles/:articleId',articleController.readArticle)
 
 
 app.get('/newUser',userController.newUserForm);
 app.get('/login',userController.loginForm);
 app.post('/login',userController.login);
+app.post('/logout',userController.logout)
 app.post('/newUser',userController.createUser);
 app.get('/user/:userid',notImplemented);
 

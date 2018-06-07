@@ -1,0 +1,10 @@
+<html>
+<head></head>
+<body>
+    <ul>
+<% articles.forEach(function(article){ %>
+<li><a href="/articles/<%=article.id%>"><%=article.title%></a> by <%=article.author.name%></li><br>
+<% }); %>
+</ul>
+</body>
+</html>

@@ -54,12 +54,28 @@ module.exports={
        function(req,res,next)
        {    
             if(req.reqdata.password==req.body.password)
-            {req.session.userId=req.reqdata.name;
+            {req.session.userId=req.reqdata.id;
              res.redirect("/");
             }
             else
             res.send("Password Wrong")
-       }]
+       }],
+    logout:function(req,res,next){
+        if(req.session&&req.session.userId){console.log(req.session.userId);
+            req.session.destroy(function(err){
+                if(err) return next(err);
+                else{
+                    res.send("Logged out");
+                }
+            })
+        }
+        else{
+            res.send("Already logged out");
+        }
+    },
+    home:function(req,res){
+        res.sendFile(_rootdir+"/static/home.html")
+    }
        
    
 };
