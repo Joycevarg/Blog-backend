@@ -1,5 +1,6 @@
+<% include header %>
 <h1><%=readArticle.title%></h1>
-<h2>by <%=readArticle.author.name%></h2>
+<h2>by <a href="/user/<%=readArticle.author.id%>"><%=readArticle.author.name%></a></h2>
 <div>
 <%=readArticle.content%>
 </div>

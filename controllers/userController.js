@@ -65,7 +65,7 @@ module.exports={
             req.session.destroy(function(err){
                 if(err) return next(err);
                 else{
-                    res.send("Logged out");
+                    res.redirect("/");
                 }
             })
         }
@@ -73,9 +73,15 @@ module.exports={
             res.send("Already logged out");
         }
     },
-    home:function(req,res){
-        res.sendFile(_rootdir+"/static/home.html")
+    seeUser:function(req,res){
+        user.findById(req.params.userId,function(err,thisuser){
+            console.log(thisuser);
+           res.render('user',{thisuser:thisuser,loggedIn:req.session.userId});
+
+        });
+    
     }
+
        
    
 };

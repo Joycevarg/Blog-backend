@@ -4,8 +4,10 @@ article=mongoose.model("article");
 
 module.exports={
 
-    newArticleForm:function(req,res){
+    newArticleForm:function(req,res){if(req.session.userId)
         res.sendFile(_rootdir+"/static/newarticle.html");
+        else
+        res.send('You need to be logged in to post');
         },
 
     submitArticle:function(req,res){
@@ -17,19 +19,19 @@ module.exports={
             newarticle.save(function(err){
             if(err) throw(err);
             console.log("New article created:"+req.body.title);
-            res.send("article created");
+            res.redirect("/");
                   })
     
             },
     listArticles:function(req,res){
         article.find({}).populate('author').exec(function(err,articles){
            // console.log(articles);
-            res.render('home',{articles:articles});
+            res.render('home',{articles:articles,loggedIn:req.session.userId});
         })},
     readArticle:function(req,res){
         article.findById(req.params.articleId).populate("author").exec(function(err,readArticle){
-            console.log(readArticle);
-           res.render('article',{readArticle:readArticle});
+      //      console.log(req.session.loggedIn);
+           res.render('article',{readArticle:readArticle,loggedIn:req.session.userId});
 
         });
     

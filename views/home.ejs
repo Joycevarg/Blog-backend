@@ -1,10 +1,6 @@
-<html>
-<head></head>
-<body>
-    <ul>
+<% include header %>
+<ul>
 <% articles.forEach(function(article){ %>
-<li><a href="/articles/<%=article.id%>"><%=article.title%></a> by <%=article.author.name%></li><br>
+<li><a href="/articles/<%=article.id%>"><%=article.title%></a> by <a href="/user/<%=article.author.id%>"><%=article.author.name%></a></li><br>
 <% }); %>
 </ul>
-</body>
-</html>

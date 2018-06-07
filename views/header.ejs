@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>JV's blog</title>
+</head>
+<body>
+<a href="/">Home</a>
+<a href="/newArticle">New Article</a>
+<a href="/newUser">New User</a>
+
+
+    <% if(loggedIn){ %><form method="POST" action="/logout">
+    <input type="submit" value="Logout">
+    </form><%}
+     else{%>
+        <a href="/login">Login</a>
+        <%}%> 
+    
+

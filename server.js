@@ -39,7 +39,7 @@ app.get('/login',userController.loginForm);
 app.post('/login',userController.login);
 app.post('/logout',userController.logout)
 app.post('/newUser',userController.createUser);
-app.get('/user/:userid',notImplemented);
+app.get('/user/:userId',userController.seeUser);
 
 console.log("listening on port 8080");
 app.listen(8080);
